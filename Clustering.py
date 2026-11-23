@@ -28,18 +28,6 @@ C = np.zeros((K, X.shape[1]))
 rng = np.random.default_rng(42)
 mu = rng.random((len(X), K))
 
-# 3. คำนวณด้วยสูตรเดียวกับตัวอย่าง
-# for _ in range(100):
-#     mu /= np.sum(mu, axis=1)[:, None]
-
-#     for k in range(K):
-#         C[k] = np.dot(mu[:, k] ** m, X) / np.sum(mu[:, k] ** m) 
-
-#         D = np.sqrt(np.sum((X - C[k]) ** 2, axis=1))
-#         D = np.maximum(D, 1e-10)  # ป้องกันระยะเป็นศูนย์
-#         D = D ** (-2 / (m - 1))
-#         mu[:, k] = D
-
 mu /= np.sum(mu, axis=1)[:, None]
 while True:
     old_mu = mu.copy()
