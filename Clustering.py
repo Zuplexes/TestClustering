@@ -70,14 +70,7 @@ for i, ax in enumerate(axes.flat):
     if i < len(images):
         print(f"{names[i]} -> Cluster {labels[i] + 1}")
         ax.imshow(images[i], cmap="gray")
-        ax.text(
-        1.05, 0.5,
-        f"{names[i]}\nCluster {labels[i] + 1}",
-        transform=ax.transAxes,
-        ha="left",
-        va="center",
-        fontsize=9
-        )
+        ax.set_title(f"{names[i]}\nCluster {labels[i] + 1}", fontsize=9)
 
 plt.tight_layout()
 plt.show()
