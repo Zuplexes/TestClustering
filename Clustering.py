@@ -47,6 +47,7 @@ while True:
 
 # 4. เลือกกลุ่ม
 labels = np.argmax(mu, axis=1)
+conf = np.max(mu, axis=1) * 100
 
 # 5. แสดงผล
 rows = (len(images) + 2) // 3
@@ -58,7 +59,7 @@ for i, ax in enumerate(axes.flat):
     if i < len(images):
         print(f"{names[i]} -> Cluster {labels[i] + 1}")
         ax.imshow(images[i], cmap="gray")
-        ax.set_title(f"{names[i]}\nCluster {labels[i] + 1}", fontsize=9)
+        ax.set_title(f"{names[i]}\nCluster {labels[i] + 1}\nConfidence: {conf[i]:.2f}%", fontsize=9)
 
 plt.tight_layout()
 plt.show()
